@@ -1,12 +1,11 @@
-// Interface Response {
-//   success: boolean;
-//   data: any;
-//   meta: any;
-// }
+import { z } from "@hono/zod-openapi";
+import type { MetaSchema } from "./schema.js";
 
-export interface Product {
+export type Product = {
   id: number;
   name: string;
   price: number;
   inStock: boolean;
-}
+};
+
+export type Meta = z.infer<typeof MetaSchema>;
