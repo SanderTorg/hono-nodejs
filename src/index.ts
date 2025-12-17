@@ -1,14 +1,15 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
-import { products } from "./products.js";
-import type { Product } from "./types.js";
-import { API_VERSION, BASE_URL, DEFAULT_PORT } from "./utils/constants.js";
+import { BASE_URL, DEFAULT_PORT } from "./utils/constants.js";
+import home from "./modules/home/home.route.js";
+import posts from "./modules/posts/posts.route.js";
 
-const app = new Hono().basePath(`${BASE_URL}/${API_VERSION}`);
+import merch from "./modules/product/merch.route.js";
 
-app.get("/", (c) => {
-  return c.json<Product[]>(products);
-});
+export const app = new Hono()
+  .route(`${BASE_URL}/home`, home)
+  .route(`${BASE_URL}/posts`, posts)
+  .route(`${BASE_URL}/merch`, merch);
 
 serve(
   {
