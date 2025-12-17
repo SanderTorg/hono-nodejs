@@ -4,7 +4,7 @@ import { BASE_URL, DEFAULT_PORT } from "./utils/constants.js";
 import home from "./modules/home/home.route.js";
 import posts from "./modules/posts/posts.route.js";
 
-import merch from "./modules/product/merch.route.js";
+import merch from "./modules/products/merch.route.js";
 
 export const app = new Hono()
   .route(`${BASE_URL}/home`, home)
