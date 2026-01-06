@@ -17,6 +17,8 @@ serve(
     port: DEFAULT_PORT,
   },
   (info) => {
-    console.log(`Server is running on http://localhost:${info.port}`);
+    console.log(
+      `Server is running on http://localhost:${info.port}${BASE_URL}/home`
+    );
   }
 );
